@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Geo-Adaptive Evacuation | Kabupaten Sukabumi</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="map"></div>
+
+  <aside id="panel">
+    <div class="brand">
+      <div class="brand-mark"><span></span></div>
+      <div>
+        <div class="eyebrow">GEOSPATIAL DECISION SUPPORT</div>
+        <h1>Geo-Adaptive Evacuation</h1>
+        <div class="brand-sub">Model Spasial Multi-Hazard &amp; Optimasi Rute Darurat</div>
+      </div>
+    </div>
+
+    <div class="section-label">ANALYSIS</div>
+    <label for="mode">Routing mode</label>
+    <select id="mode">
+      <option value="nearest">Shelter terdekat</option>
+      <option value="hazard" selected>Zona aman sesuai bencana</option>
+    </select>
+
+    <label for="hazard">Skenario bencana</label>
+    <select id="hazard">
+      <option value="banjir">Banjir</option>
+      <option value="banjir_bandang">Banjir Bandang</option>
+      <option value="gempabumi">Gempabumi</option>
+      <option value="gunungapi">Gunungapi</option>
+      <option value="tanahlongsor">Tanah Longsor</option>
+      <option value="tsunami">Tsunami</option>
+    </select>
+
+    <div class="section-label action-label">ROUTE</div>
+    <div class="action-grid">
+      <button id="locate" class="button secondary">Gunakan lokasi saya</button>
+      <button id="pick" class="button secondary">Tentukan titik awal</button>
+    </div>
+    <button id="route" class="button primary" disabled>Cari rute evakuasi</button>
+    <button id="clear" class="button ghost">Hapus rute</button>
+
+    <div id="status" class="status">Memuat data…</div>
+    <div id="diagnostic" class="box">Memeriksa file data…</div>
+
+    <div class="section-label map-label">MAP</div>
+    <div class="legend-box">
+      <div class="legend-title">Risk classification</div>
+      <div><span class="swatch low"></span>Rendah</div>
+      <div><span class="swatch mid"></span>Sedang</div>
+      <div><span class="swatch high"></span>Tinggi</div>
+    </div>
+
+    <div id="assessment" class="box">Menunggu titik awal.</div>
+    <div id="result" class="box"></div>
+
+    <div class="footer-note">
+      <strong>Hazard-aware routing</strong><br>
+      Biaya ruas mempertimbangkan kelas bahaya dan risiko. Rute tetap mengikuti jaringan jalan darat.
+    </div>
+  </aside>
+
+  <div class="map-credit">Kabupaten Sukabumi · WebGIS Evacuation Intelligence</div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
